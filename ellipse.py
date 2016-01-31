@@ -5,7 +5,7 @@ import numpy as np
 import math
 #%matplotlib inline
 
-nx=251
+nx=21
 ny=201
 nt=10000
 
@@ -26,7 +26,7 @@ def solvePde(nt,c,h,ny,u,dy):
     for n in range(nt):
         uc=c.copy()
         temp=u/dy
-        c[1:-1,1:-1]=h/4*(temp*uc[1:-1,2:]-temp*uc[1:-1,0:-2])-1/2*(uc[2:,1:-1]+uc[0:-2,1:-1])
+        c[1:-1,1:-1]=-(h/4*(temp*uc[1:-1,2:]-temp*uc[1:-1,0:-2])-1/2*(uc[2:,1:-1]+uc[0:-2,1:-1]))
 
         c[0,:]=0
         c[-1,:]=0
